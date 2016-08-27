@@ -1,0 +1,16 @@
+import urllib3
+from bs4 import BeautifulSoup
+import re
+
+http = urllib3.PoolManager()
+
+
+r = http.request('GET', 'https://arxiv.org/list/math.AP/1608?show=189', headers={'User-Agent': 'Mozilla/5.0'})
+##lines=r.readlines();
+
+urls = []
+for line in r:
+ urlline = re.findall(b'/abs/(.*?)\"', line)
+ for k in urlline:
+  urls += ['http://arxiv.org/abs/' + k.decode('utf-8') + '/'];
+  print(urls)
