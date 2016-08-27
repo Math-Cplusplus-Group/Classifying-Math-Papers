@@ -27,5 +27,6 @@ expression. Note that re.findall returns a vector, hence the [0].
 """
 
 abstract = re.findall(r"<span class=" '\"descriptor\"' ">Abstract:</span>" '(.*?)' "</blockquote>", longString)[0]
+abstract = re.sub(r'\$(.*?)\$', "math_mode", abstract) # replace text enclosed in dollar signs with "math_mode".
 
 print(abstract)
