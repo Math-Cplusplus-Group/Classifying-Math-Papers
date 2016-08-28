@@ -29,10 +29,8 @@ class ArxivParser:
         
 
     def get_abstract_and_topic(self, text):
-        """
-        This method extracts a single abstract and the corresponding topic, then appends them to the lists
-        self.abstracts and self.abstract_topics respectively.
-        """
+        # This method extracts a single abstract and the corresponding topic, then appends them to the lists
+        # self.abstracts and self.abstract_topics respectively.
 
         topic = re.findall(b'\<h1\>Mathematics \> (.*?)\</h1\>', text)[0]
         self.abstract_topics += [topic.decode(self.encoding)]
