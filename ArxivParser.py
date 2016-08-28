@@ -42,7 +42,7 @@ class ArxivParser:
          
 
 def ExtractHTML(url):
-    response = urllib.request.urlopen(url)
+    response = urllib.request.urlopen(url) # should probably put some try/exception statements here
     text = response.read()
     return text
 
